@@ -5,7 +5,15 @@
 testdata = greenjobs.splice(0, 10);
 
 function listIndustries(data) {
-  return _.uniq(_.pluck(data, 'Industry'));
+  var arrayI = _.uniq(_.pluck(data, 'Industry'));
+  return _.map(arrayI, function(val) {
+    if(val === undefined) {
+      return "";
+    }
+    else {
+      return val;
+    }
+  });
 }
 
 function countyGreenJobs(data) {
